@@ -1,5 +1,4 @@
 namespace sodeshop.Repositories;
-
 public class AccountsRepository
 {
   private readonly IDbConnection _db;
