@@ -14,13 +14,14 @@ public class SodaRepository
   {
     string sql = @"
     SELECT 
-  sodas.,
-  COUNT(cart_items.id) AS times_in_cart,
-  accounts.*
-FROM sodas
-JOIN accounts ON accounts.id = sodas.creatorId
-LEFT JOIN cart_items ON cart_items.soda_id = sodas.id
-GROUP BY sodas.id, sodas.name;3";
+    sodas.*,
+    COUNT(cart_items.id) AS times_in_cart,
+    accounts.*
+    FROM sodas
+    JOIN accounts ON accounts.id = sodas.creatorId
+    LEFT JOIN cart_items ON cart_items.soda_id = sodas.id
+    GROUP BY (sodas.id)
+;";
 
     List<Soda> sodas = _db.Query<Soda, Profile, Soda>(sql, (soda, profile) =>
     {
@@ -30,7 +31,6 @@ GROUP BY sodas.id, sodas.name;3";
     return sodas;
 
   }
-  
     // internal List<Keep> GetAllKeeps()
     // {
     //     string sql = @"
@@ -43,15 +43,6 @@ GROUP BY sodas.id, sodas.name;3";
     // LEFT JOIN vaultKeep ON vaultKeep.keepId = keeps.id
     // GROUP BY (keeps.id)
     // ;";
-
-    //     List<Keep> keep = _db.Query<Keep, Profile, Keep>(sql, (keep, profile) =>
-    //     {
-    //         keep.Creator = profile;
-    //         return keep;
-    //     }).ToList();
-
-    //     return keep;
-    // }
 
 
     private Soda JoinCreator(Soda Soda, Profile profile)

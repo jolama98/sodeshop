@@ -1,5 +1,4 @@
 namespace sodeshop.Models;
-
 public class Soda : RepoItem<int>
 {
 

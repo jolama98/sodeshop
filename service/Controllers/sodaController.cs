@@ -2,7 +2,7 @@ namespace sodeshop.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class SodaController : ControllerBase
 {
     private readonly SodaService _sodaService;
@@ -20,8 +20,8 @@ public class SodaController : ControllerBase
     {
         try
         {
-            List<Soda> sodas = _sodaService.GetAllSodas();
-            return Ok(sodas);
+            List<Soda> soda = _sodaService.GetAllSodas();
+            return Ok(soda);
         }
         catch (Exception exception)
         {
