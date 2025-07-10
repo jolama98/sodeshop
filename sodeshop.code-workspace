@@ -8,5 +8,10 @@
       "name": "service",
       "path": "service"
     }
-  ]
+  ],
+  "settings": {
+    "cSpell.words": [
+      "sodeshop"
+    ]
+  }
 }
