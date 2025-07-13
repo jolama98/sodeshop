@@ -10,29 +10,20 @@ CREATE TABLE IF NOT EXISTS accounts(
 CREATE TABLE sodas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   name VARCHAR(100) NOT NULL,
   description TEXT,
-  price DECIMAL(10, 2) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  image_url VARCHAR(255),
   stock INT DEFAULT 0,
-  image_url TEXT,
   creatorId VARCHAR(255) NOT NULL,
   FOREIGN KEY (creatorId) REFERENCES accounts (id) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS `user`;
 
--- CREATE TABLE keeps(
---   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
---   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
--- updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
--- name VARCHAR(255) NOT NULL,
--- description VARCHAR(1000) NOT NULL,
--- img VARCHAR(1000) NOT NULL,
--- views INT UNSIGNED NOT NULL DEFAULT 0,
--- creatorId VARCHAR(255) NOT NULL,
--- FOREIGN KEY (creatorId) REFERENCES accounts (id) ON DELETE CASCADE
--- )
+
+DROP TABLE sodas;
+
 
 DROP TABLE cart_items;
 
@@ -82,22 +73,11 @@ CREATE TABLE orders (
 );
 
 
-INSERT INTO sodas(
-`name`,
-`description`,
-`price`,
-`stock`,
-`image_url`,
-`creatorId`)
+INSERT INTO
+sodas (name, description, price, image_url, stock, creatorId)
 VALUES
-('Coca-Cola', 'Classic Coca-Cola soda', 1.50, 100, 'https://example.com/coca-cola.jpg', '6691cd264de80d398f94368a');
-
-
-
-
-
--- INSERT INTO `vaultKeep`(
---   `vaultId`,
---   `keepId`,
---   `creatorId`
--- ) VALUES(244, 209, "66d109c1258b754bca428053");
+('Coke', 'Classic Coca-Cola soda', 1.50, 'https://example.com/coke.jpg', 100, '6691cd264de80d398f94368a'),
+('Pepsi', 'Refreshing Pepsi soda', 1.50, 'https://example.com/pepsi.jpg', 100, '6691cd264de80d398f94368a'),
+('Sprite', 'Lemon-lime flavored soda', 1.50, 'https://example.com/sprite.jpg', 100, '6691cd264de80d398f94368a'),
+('Fanta', 'Orange flavored soda', 1.50, 'https://example.com/fanta.jpg', 100, '6691cd264de80d398f94368a'),
+('Dr Pepper', 'Unique blend of 23 flavors', 1.50, 'https://example.com/drpepper.jpg', 100, '6691cd264de80d398f94368a');

@@ -19,12 +19,12 @@ public class SodaController : ControllerBase
   {
     try
     {
-      List<Soda> sodas = _sodaService.GetAllSodas();
-      return Ok(sodas);
+      List<Soda> soda = _sodaService.GetAllSodas();
+      return Ok(soda);
     }
-    catch (Exception e)
+    catch (Exception exception)
     {
-      return BadRequest(e.Message);
+      return BadRequest(exception.Message);
     }
   }
 }

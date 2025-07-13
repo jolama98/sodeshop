@@ -13,20 +13,18 @@ public class SodaRepository
     internal List<Soda> GetAllSodas()
     {
         string sql = @"
-        SELECT
-        sodas.*,
-        accounts.*
-        FROM sodas
-        JOIN accounts ON accounts.id = sodas.creatorId
-        GROUP BY (sodas.id)
-        ;";
-    
-        List<Soda> sodas = _db.Query<Soda, Profile, Soda>(sql, (sodas, profile) =>
+SELECT
+sodas.*,
+accounts.*
+FROM sodas
+JOIN accounts ON accounts.id = sodas.creatorId;
+;";
+
+List<Soda> sodas = _db.Query<Soda, Profile, Soda>(sql, (soda, profile) =>
         {
-            sodas.Creator = profile;
-            return sodas;
+            soda.Creator = profile;
+            return soda;
         }).ToList();
         return sodas;
     }
 }
-

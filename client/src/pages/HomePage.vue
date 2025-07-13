@@ -1,13 +1,28 @@
-<script setup >
-import Example from '@/components/Example.vue';
+<script setup>
+import { sodaService } from '@/services/SodaService';
+import { Pop } from '@/utils/Pop';
+import { onMounted } from 'vue';
+
+
+onMounted(() => {
+  getAllSodas();
+  console.log('HomePage component mounted');
+});
+async function getAllSodas() {
+  try {
+    await sodaService.getSodas()
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+
+}
 
 
 </script>
 
 <template>
-  <Example />
+  <h1>Hello</h1>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
