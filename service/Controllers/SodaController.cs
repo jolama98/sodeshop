@@ -27,4 +27,19 @@ public class SodaController : ControllerBase
       return BadRequest(exception.Message);
     }
   }
+
+  [HttpGet("{sodaId}")]
+  public ActionResult<Soda> GetSodaById(int sodaId)
+  {
+    try
+    {
+      
+      Soda soda =  _sodaService.GetSodaById(sodaId);
+      return Ok(soda);
+    }
+    catch (Exception exception)
+    {
+      return BadRequest(exception.Message);
+    }
+  }
 }
