@@ -76,8 +76,8 @@ CREATE TABLE orders (
 INSERT INTO
 sodas (name, description, price, image_url, stock, creatorId)
 VALUES
-('Coke', 'Classic Coca-Cola soda', 1.50, 'https://example.com/coke.jpg', 100, '6691cd264de80d398f94368a'),
-('Pepsi', 'Refreshing Pepsi soda', 1.50, 'https://example.com/pepsi.jpg', 100, '6691cd264de80d398f94368a'),
-('Sprite', 'Lemon-lime flavored soda', 1.50, 'https://example.com/sprite.jpg', 100, '6691cd264de80d398f94368a'),
+('Coke', 'Classic Coca-Cola soda', 1.50, 'https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 100, '6691cd264de80d398f94368a'),
+('Pepsi', 'Refreshing Pepsi soda', 1.50, 'https://plus.unsplash.com/premium_photo-1681487658177-36170fa6bb06?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 100, '6691cd264de80d398f94368a'),
+('Sprite', 'Lemon-lime flavored soda', 1.50, 'https://plus.unsplash.com/premium_photo-1681487652640-9257693221d5?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 100, '6691cd264de80d398f94368a'),
 ('Fanta', 'Orange flavored soda', 1.50, 'https://example.com/fanta.jpg', 100, '6691cd264de80d398f94368a'),
 ('Dr Pepper', 'Unique blend of 23 flavors', 1.50, 'https://example.com/drpepper.jpg', 100, '6691cd264de80d398f94368a');

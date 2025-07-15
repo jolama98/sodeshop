@@ -24,9 +24,43 @@ async function getAllSodas() {
 </script>
 
 <template>
-  <div v-for="soda in sodas" :key="soda.id">
-    <SodaCard :sodaProps="soda" />
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-12">
+        <div class="masonry-layout">
+
+          <div v-for="soda in sodas" :key="soda.id" class="masonry-item">
+            <SodaCard :sodaProps="soda" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.masonry-layout {
+  column-count: 4;
+  column-gap: 1rem;
+  width: 100%;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .masonry-layout {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 550px) {
+  .masonry-layout {
+    column-count: 2;
+  }
+}
+</style>
