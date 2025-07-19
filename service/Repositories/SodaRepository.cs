@@ -1,7 +1,7 @@
 
 namespace sodeshop.Repositories;
 
-public class SodaRepository
+ public class SodaRepository
 {
     private readonly IDbConnection _db;
 
@@ -46,9 +46,9 @@ GROUP BY (sodas.id)
             sodaId
 
         }).FirstOrDefault();
-return soda;
+        return soda;
     }
-    
+
 
 
     private Soda JoinCreator(Soda soda, Profile profile)

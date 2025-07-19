@@ -11,6 +11,14 @@ class SodaService {
         logger.log(response.data)
         AppState.sodas = newSodas
     }
+
+    async getSodaById(sodaId) {
+        AppState.activeSoda = null
+        const response = await api.get(`api/soda/${sodaId}`)
+        const sodaData = response.data
+        logger.log(sodaData)
+        AppState.activeSoda = response.data
+    }
 }
 
 export const sodaService = new SodaService();

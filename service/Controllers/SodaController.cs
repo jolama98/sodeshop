@@ -1,5 +1,6 @@
 namespace sodeshop.Controllers;
 
+
 [ApiController]
 [Route("api/[controller]")]
 public class SodaController : ControllerBase
@@ -33,8 +34,8 @@ public class SodaController : ControllerBase
   {
     try
     {
-      
-      Soda soda =  _sodaService.GetSodaById(sodaId);
+
+      Soda soda = _sodaService.GetSodaById(sodaId);
       return Ok(soda);
     }
     catch (Exception exception)

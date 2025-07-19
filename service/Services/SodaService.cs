@@ -1,4 +1,3 @@
-
 namespace sodeshop.Services;
 
 public class SodaService
