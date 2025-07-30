@@ -10,6 +10,12 @@ public class CartService
         _cartRepository = cartRepository;
     }
 
+    internal Cart CreateCart(Cart cartData)
+    {
+        Cart cart = _cartRepository.CreateCart(cartData);
+        return cart;
+    }
+
     internal Cart GetCartByUserId(int cartId, string creatorId)
     {
     
