@@ -1,26 +1,30 @@
-
 namespace sodeshop.Services;
 
 public class CartItemService
 {
-    private readonly CartService _cartService;
     private readonly CartItemRepository _cartItemRepository;
-    private readonly CartItemService _cartItemService;
+    private readonly CartService _cartService;
+    private readonly SodaService _sodaService;
 
-    public CartItemService(CartItemRepository cartItemRepository, CartItemService cartItemService)
+    public CartItemService(CartItemRepository cartItemRepository, CartService cartService, SodaService sodaService)
     {
         _cartItemRepository = cartItemRepository;
-        _cartItemService = cartItemService;
+        _cartService = cartService;
+        _sodaService = sodaService;
     }
+
+
 
     internal Cart_items AddToCart(Cart_items cartItemData)
     {
-Cart cart = _cartService.GetCartByUserId(cartItemData.CreatorId);
+        Cart cart = _cartService.GetCartByUserId(cartItemData.CartId, cartItemData.CreatorId);
+        
         if (cartItemData.CreatorId != cart.CreatorId)
         {
             throw new Exception("You cannot add items to another user's cart.");
         }
-       
+        Cart_items cart_Items = _cartItemRepository.AddToCart(cartItemData);
+        return cart_Items;
 
     }
 }

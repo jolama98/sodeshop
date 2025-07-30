@@ -38,7 +38,13 @@ public class Startup
     services.AddScoped<AccountService>();
 
     services.AddScoped<SodaRepository>();
-    services.AddScoped<SodaService>();    
+    services.AddScoped<SodaService>();
+
+    services.AddScoped<CartRepository>();
+    services.AddScoped<CartService>();
+
+    services.AddScoped<CartItemRepository>();  
+    services.AddScoped<CartItemService>();
    
   }
 

@@ -8,5 +8,10 @@ public class CartItemRepository
         _db = db;
     }
 
+    internal Cart_items AddToCart(Cart_items cartItemData)
+    {
+        throw new NotImplementedException();
+    }
+
     // Add methods for cart operations here
 }

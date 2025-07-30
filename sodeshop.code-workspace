@@ -12,6 +12,11 @@
   "settings": {
     "cSpell.words": [
       "sodeshop"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "notebook.defaultFormatter": "vscode.typescript-language-features",
+    "dotnet.formatting.organizeImportsOnFormat": true
   }
 }

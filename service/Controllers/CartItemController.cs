@@ -15,12 +15,12 @@ public class CartItemController : ControllerBase
   }
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Cart_items>> AddToCart([FromBody] Cart_items cartItem)
+  public async Task<ActionResult<Cart_items>> AddToCart([FromBody] Cart_items cartItemData)
   {
     try
     {
      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
-      cartItem.CreatorId = userInfo.Id;
+      cartItemData.CreatorId = userInfo.Id;
       Cart_items cart_items = _cartItemService.AddToCart(cartItemData);
       return Ok(cart_items);
     }
@@ -29,5 +29,5 @@ public class CartItemController : ControllerBase
       return BadRequest(e.Message);
     }
   }
-    
+     
 }

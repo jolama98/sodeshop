@@ -10,10 +10,28 @@ public class CartRepository
         _db = db;
     }
 
-    internal object GetCartById(string cartId)
+    internal Cart GetCartById(int cartId)
     {
-        throw new NotImplementedException();
+        string sql = @"
+        SELECT 
+        carts.*,
+        accounts.*
+        FROM carts
+        JOIN account ON carts.creatorId = account.id
+        WHERE carts.id = @cartsId
+        ;";
+
+        Cart cart = _db.Query<Cart, Profile, Cart>(sql, JoinCreator, new
+        {
+            cartId
+        }).FirstOrDefault();
+        return cart;
     }
 
-    // Add methods for cart operations here
+    private Cart JoinCreator(Cart cart, Profile profile)
+    {
+        cart.Creator = profile;
+        return cart;
+    }
+
 }
