@@ -28,6 +28,15 @@ public class CartService
 
     }
 
+    internal Cart GetPublicCart(int cartId, string userId)
+    {
+        Cart cart = GetCartById(cartId);
+        if (cart.CreatorId != userId && cart.IsCheckedOut != true)
+        {
+            throw new Exception("You cannot access a cart that has already been checked out by another user.");
+        }
+        return cart;
+    }
 
     private Cart GetCartById(int cartId)
     {

@@ -5,11 +5,14 @@ import { sodaService } from '@/services/SodaService';
 import { Pop } from '@/utils/Pop';
 import { computed, onMounted } from 'vue';
 
+
 const sodas = computed(() => AppState.sodas);
+
 onMounted(() => {
   getAllSodas();
   console.log('HomePage component mounted');
 });
+
 async function getAllSodas() {
   try {
     await sodaService.getSodas()
@@ -17,15 +20,17 @@ async function getAllSodas() {
   catch (error) {
     Pop.error(error);
   }
-
 }
+
+
+//TODO - create a cart getting an item by ID create a car item
 
 
 </script>
 
 <template>
   <div class="container-fluid mt-3">
-    <div class="row">
+    <section class="row">
       <div class="col-12">
         <div class="masonry-layout">
 
@@ -34,7 +39,7 @@ async function getAllSodas() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 
 

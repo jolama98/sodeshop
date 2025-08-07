@@ -21,7 +21,7 @@ public class CartController : ControllerBase
     {
         try
         {
-           Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
 
             cartData.CreatorId = userInfo.Id;
             Cart cart = _cartService.CreateCart(cartData);
@@ -32,6 +32,23 @@ public class CartController : ControllerBase
             return BadRequest(exception.Message);
         }
     }
+
+
+    // SECTION - Get cart by soda ID
+    [HttpGet("{cardId}/sodas")]
+    public async Task<ActionResult<List<CartSodaSoda>>> GetPublicCard(int cartId)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            List<CartSodaSoda> cartSodas = _cartItemService.GetCartSodasByCartId(cartId, userInfo?.Id);
+            return Ok(cartSodas);
+    }
+        catch (Exception exception)
+        {
+            return BadRequest(exception.Message);
+        }
+}
     // Add methods for cart operations here
 }
  

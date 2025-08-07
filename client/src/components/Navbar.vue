@@ -2,6 +2,10 @@
 import { ref, watch } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
 import Login from './Login.vue';
+import { AppState } from '@/AppState.js';
+
+
+
 
 const theme = ref(loadState('theme') || 'light')
 
@@ -17,11 +21,11 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-codeworks border-bottom border-vue">
+  <nav class="navbar navbar-expand-md bg-dark border-bottom border-vue">
     <div class="container gap-2">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light">
-        <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
-        <b class="fs-5">Vue Starter</b>
+
+        <b role="button" class="fs-5">Soda Shop</b>
       </RouterLink>
       <!-- collapse button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
@@ -38,6 +42,7 @@ watch(theme, () => {
           </li>
         </ul>
         <!-- LOGIN COMPONENT HERE -->
+
         <div class="ms-auto">
           <button class="btn text-light" @click="toggleTheme"
             :title="`Enable ${theme == 'light' ? 'dark' : 'light'} theme.`">
@@ -46,6 +51,25 @@ watch(theme, () => {
           </button>
         </div>
         <Login />
+
+        <p role="button" class="btn btn-outline-success btn-sm mdi mdi-cart mb-0 d-lg-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive"
+          aria-controls="offcanvasResponsive"></p>
+
+
+        <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive"
+          aria-labelledby="offcanvasResponsiveLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <p class="mb-0 text-dark shadow-sm p-3 mb-5 bg-body-tertiary rounded ">{{
+              AppState.sodasInCart.length }} Sodas in Cart</p>
+
+          </div>
+        </div>
       </div>
     </div>
   </nav>

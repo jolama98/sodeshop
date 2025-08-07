@@ -10,4 +10,12 @@ public class Cart_items : RepoItem<int>
 }
 
 
+public class CartSodaSoda : Soda
+{
+public int Cart_itemsId { get; set; }
+public int CartId { get; set; }
+public string Image { get; set; }
+public string AccountId { get; set; }
+}
+
 

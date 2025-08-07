@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import { Cart } from './models/Cart.js'
 
 // NOTE AppState is a reactive object to contain app level data
 export const AppState = reactive({
@@ -10,5 +11,10 @@ export const AppState = reactive({
   sodas: [],
   /** @type {import('./models/Soda.js').Soda | null} */
   activeSoda: null,
+  /** @type {Cart[]} */
+  sodasInCart: [],
+  /** @type {Cart | null} */
+  sodaById: null,
+
 })
 

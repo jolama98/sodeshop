@@ -1,3 +1,4 @@
+
 namespace sodeshop.Services;
 
 public class CartItemService
@@ -26,5 +27,12 @@ public class CartItemService
         Cart_items cart_Items = _cartItemRepository.AddToCart(cartItemData);
         return cart_Items;
 
+    }
+
+    internal List<CartSodaSoda> GetCartSodasByCartId(int cartId, string userId)
+    {
+        Cart cart = _cartService.GetPublicCart(cartId, userId);
+        List<CartSodaSoda> cartSodas = _cartItemRepository.GetCartSodasByCartId(cartId, userId);
+        return cartSodas;
     }
 }

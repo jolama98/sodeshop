@@ -17,6 +17,9 @@
     "editor.formatOnPaste": true,
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "notebook.defaultFormatter": "vscode.typescript-language-features",
-    "dotnet.formatting.organizeImportsOnFormat": true
+    "dotnet.formatting.organizeImportsOnFormat": true,
+    "editor.fontSize": 15,
+    "editor.wordWrap": "on",
+    "html.format.wrapLineLength": 110
   }
 }

@@ -13,11 +13,10 @@ class SodaService {
     }
 
     async getSodaById(sodaId) {
-        AppState.activeSoda = null
+        AppState.sodaById = null
         const response = await api.get(`api/soda/${sodaId}`)
         const sodaData = response.data
-        logger.log(sodaData)
-        AppState.activeSoda = response.data
+        AppState.sodaById = response.data
     }
 }
 
